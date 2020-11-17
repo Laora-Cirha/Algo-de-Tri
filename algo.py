@@ -21,23 +21,18 @@ print(triSelect(list))
 # ---------------------------------------
 # ---------------------------------------
 
-"""def triFusion(list):
-    len(list)
+def triFusion(list):
     if len(list)>0:
-        list[/2]
-        
-        
-       
-        
-        liste0 = partie gauche de la liste
-        list1 = partie droite de la liste
+        list0=list[0:milieu]
+        list1=list[milieu-1]
 
-        list0Trie = triFusion(list0)
-        list1Trie = triFusion(list1)
+        list0trie=trifusion(list0)
+        list1trie=trifusion(list1)
+
         return fusion (list0trie,list1trie)
         
     else return list
-"""
+
 # --------------------------------------
 #   Démineur
 # --------------------------------------
