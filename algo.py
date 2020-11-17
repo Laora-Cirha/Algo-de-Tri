@@ -37,7 +37,7 @@ print(fusion([2,3,7],[4,5,8]))
 # --------------------------------------
 
 
-
+import random
 def _init_(hauteur, largeur):
 
     listOflist=[]
@@ -55,3 +55,9 @@ liste=_init_(5,5)
 
 for i in liste:
     print(i)
+
+# Mines
+def mines(max):
+    nMine = random.randint(2,max)
+    return nMine
+print(mines(5))
