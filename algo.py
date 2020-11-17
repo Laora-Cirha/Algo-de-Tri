@@ -93,7 +93,7 @@ def _init_(hauteur, largeur):
     max=mines(hauteur*largeur//10)
     nbreMines=0
     while nbreMines<max:
-        nombre
+        x=random.randint
 
     return listOflist
 
