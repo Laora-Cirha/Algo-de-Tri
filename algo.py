@@ -21,17 +21,16 @@ print(triSelect(list))
 # ---------------------------------------
 # ---------------------------------------
 
-def triFusion(list):
-    if len(list)>0:
-        list0=list[0:milieu]
-        list1=list[milieu-1]
+def fusion(list1, list2):
+    result=[]
+    j=0
+    for i in list1:
+        while j<len(list2)-1 and i <list2[j]:
+            result.append(list2[j])
+        result.append(i)
+    result.extend(list2[j:])
 
-        list0trie=trifusion(list0)
-        list1trie=trifusion(list1)
-
-        return fusion (list0trie,list1trie)
-        
-    else return list
+print(fusion([2,3,7],[4,5,8]))
 
 # --------------------------------------
 #   Démineur
