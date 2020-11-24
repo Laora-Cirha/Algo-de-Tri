@@ -22,6 +22,30 @@ def mines(max):
 print("Il y a |",mines(minesMax),"| mines.")
 
 # --------------------------------------
+"""   Position des mines """
+# --------------------------------------
+def _mines_(hauteur, largeur):
+
+    listOflist=[]
+
+    for i in range(hauteur):
+        listRow=[]
+
+        for j in range(largeur):
+            listRow.append("1")
+        listOflist.append(listRow)
+        
+    return listOflist
+
+# Position aléatoire des mines
+
+def minesPos(list):
+    c = random.randint(2,hauteur)-1
+    d = random.randint(2,largeur)-1
+
+    list[c][d]="0"
+
+# --------------------------------------
 """   Tableau visible """
 # --------------------------------------
 
