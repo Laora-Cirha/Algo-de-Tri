@@ -2,7 +2,7 @@
 #   Tri par selection
 # ---------------------------------------
 
-"""
+
 list=[4,2,7,8]
 def selectMin(list):
     var=list[0]
@@ -22,22 +22,27 @@ def triSelect (list):
     return result
 print("list trié :")
 print(triSelect(list))
-"""
+
 
 # ---------------------------------------
 #   Fusion
 # ---------------------------------------
 
-"""
-def fusion(list1, list2):
-    result=[]
-    j=0
-    for i in list1:
-        while j<len(list2)-1 and i <list2[j]:
-            result.append(list2[j])
-        result.append(i)
-    result.extend(list2[j:])
+def triFusion (list):
+    if len(list)>0:
+        milieu = len//2
+        #   A compléter
+        list[0]=list[:milieu]
+        list[1]=list[milieu:]
 
-print(fusion([2,3,7],[4,5,8]))
-"""
+        list0Trie= triFusion(list0)
+        list1Trie= triFusion(list1)
+        #
 
+        return fusion(list0Trie,list1Trie)
+
+    else:
+        return list
+
+
+#   A compléter
