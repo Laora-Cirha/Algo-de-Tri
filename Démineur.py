@@ -6,16 +6,12 @@
 """   Tableau visible """
 # --------------------------------------
 
+
+hauteur = 5
+largeur = 5
+
 import random
 def _init_(hauteur, largeur):
-    # Initialisation / position du joueur
-
-    a = int(input("Choix de la colonne"))
-    b = int(input("Choix de la ligne"))
-    a -= 1
-   
-    largeur -= 1
-    print(a)
 
     listOflist=[]
 
@@ -23,20 +19,29 @@ def _init_(hauteur, largeur):
         listRow=[]
 
         for j in range(largeur):
-            if j == a :
-                listRow.append("0")
-            
             listRow.append("x")
         listOflist.append(listRow)
         
-
     return listOflist
 
-liste=_init_(5,5)
+def modifyTableau(list):
+    a = int(input("Choix de la colonne"))-1
+    b = int(input("Choix de la ligne"))-1
 
-for i in liste:
-    print(i)
+    list[a][b]="0"
 
+def affiche(tableau):
+    for i in tableau:
+        print(i)
+
+def demineur():
+    liste = _init_(hauteur,largeur)
+    pasPerdu=True
+    while (pasPerdu):
+        modifyTableau(liste)
+        affiche(liste)
+
+demineur()
 # --------------------------------------
 """   Nombre de mines """
 # --------------------------------------
@@ -50,6 +55,7 @@ print(mines(5))
 
 
 #   Position des mines (Tableau invisible)
+"""
 import random
 def _init_(hauteur, largeur):
 
@@ -69,4 +75,4 @@ liste=_init_(5,5)
 
 for i in liste:
     print(i)
-
+"""
