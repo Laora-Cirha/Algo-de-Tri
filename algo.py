@@ -27,6 +27,8 @@ print(triSelect(list))
 # ---------------------------------------
 #   Fusion
 # ---------------------------------------
+list0=[2;3;24;15;7]
+list1=[]
 
 def triFusion (list):
     if len(list)>0:
