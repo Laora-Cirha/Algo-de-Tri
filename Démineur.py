@@ -32,7 +32,7 @@ def _mines_(hauteur, largeur):
         listRow=[]
 
         for j in range(largeur):
-            listRow.append("1")
+            listRow.append(0)
         listOflist.append(listRow)
         
     return listOflist
@@ -58,32 +58,64 @@ def _init_(hauteur, largeur):
         listRow=[]
 
         for j in range(largeur):
-            listRow.append("x")
+            listRow.append("X")
         listOflist.append(listRow)
         
     return listOflist
 
 # Position du joueur
-def modifyTableau(list):
-    a = int(input("Choix de la ligne : "))-1
-    b = int(input("Choix de la colonne : "))-1
+def modifyTableau(list,mines):
+    pasPerdu=True
+    a = int(input("Choix de la ligne entre 0 et " + str(hauteur-1) + " :"))
+    b = int(input("Choix de la colonne entre 0 " + str(largeur-1) + " :"))
+    if (mines[a][b]==1):
 
-    list[a][b]="0"
+        print("Vous avez perdu, dommage.")
+        pasPerdu=False
+    compteur=0
+    if (a>0 and b>0 and mines[a-1][b-1]==1):
+        compteur+=1
+    if (a<largeur-1 and b<hauteur-1 and mines[a+1][b+1]==1):
+        compteur+=1
+    if (a>largeur-1 and b<hauteur-1 and mines[a-1][b+1]==1):
+        compteur+=1
+    if (a<largeur-1 and b>hauteur-1 and mines[a+1][b-1]==1):
+        compteur+=1
+    if (a>largeur-1 and mines[a+1][b]==1):
+        compteur+=1
+    if (a<largeur-1 and mines[a-1][b]==1):
+        compteur+=1
+    if (b<hauteur-1 and mines[a][b-1]==1):
+        compteur+=1
+    if (b>hauteur-1 and mines[a][b+1]==1):
+        compteur+=1
+
+    list[a][b]=compteur
+
+    return pasPerdu
 
 # Affichage 
 def affiche(tableau):
     for i in tableau:
         print(i)
 
+def placerMines(mines):
+    for i in range(minesMax): 
+     x = random.randrange(1,5) 
+     y = random.randrange(1,5) 
+     mines[x][y] = 1
+    print()
+
 # Durée de jeu 
 def demineur():
     liste = _init_(hauteur,largeur)
+    mines = _mines_(hauteur,largeur)
+    placerMines(mines)
     pasPerdu=True
     while (pasPerdu):
-        modifyTableau(liste)
+        pasPerdu=modifyTableau(liste,mines)
         affiche(liste)
 
 demineur()
 
 
-#   Position des mines (Tableau invisible)
